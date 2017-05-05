@@ -1,0 +1,68 @@
+﻿@using BusinessLayer.ViewModels
+@model BusinessLayer.ViewModels.ListClientViewModel
+
+@{
+    ViewBag.Title = "title";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="page-header">Users</h2>
+
+<p>
+    <a href="@Url.Action("Create")" class="btn btn-info">Add New</a>
+</p>
+
+<table id="data-table" class="display">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("First Name")
+            </th>
+            <th>
+                @Html.DisplayName("Last Name")
+            </th>
+            <th>
+                @Html.DisplayName("Phone Number")
+            </th>
+            <th>
+                @Html.DisplayName("CNP")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (ClientViewModel user in Model.Clients)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => user.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => user.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => user.PhoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => user.Cnp)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = user.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = user.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@section Styles {
+    @Styles.Render("~/Content/DataTables/css/jquery.dataTables.min.css")
+}
+@section Scripts{
+    @Scripts.Render("~/Scripts/DataTables/jquery.dataTables.min.js")
+
+    <script type="text/javascript">
+        $(function() {
+            $("#data-table").dataTable();
+        });
+    </script>
+}
