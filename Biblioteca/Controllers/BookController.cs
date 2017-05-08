@@ -1,6 +1,7 @@
 ﻿using System.Web.Mvc;
 using BusinessLayer.Services;
 using BusinessLayer.ViewModels;
+using DataAccess.EntityFramework;
 
 namespace Biblioteca.Controllers
 {

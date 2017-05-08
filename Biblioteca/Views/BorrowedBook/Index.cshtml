@@ -1,0 +1,69 @@
+﻿@using BusinessLayer.ViewModels
+@model ListBorrowedBookViewModel
+
+@{
+    ViewBag.Title = "title";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="page-header">Borrowed books</h2>
+
+<p>
+    <a href="@Url.Action("Create")" class="btn btn-info">Borrow</a>
+</p>
+
+<table id="data-table" class="display">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Client")
+            </th>
+            <th>
+                @Html.DisplayName("Book title")
+            </th>
+            <th>
+                @Html.DisplayName("Author")
+            </th>
+            <th>
+                @Html.DisplayName("Returned")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (BorrowedBookViewModel borrowedBook in Model.BorrowedBooks)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => borrowedBook.ClientName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => borrowedBook.BookTitle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => borrowedBook.Author)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => borrowedBook.Returned)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = borrowedBook.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = borrowedBook.Id }) |
+                    @Html.ActionLink("Return", "Return", new { id = borrowedBook.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@section Styles {
+    @Styles.Render("~/Content/DataTables/css/jquery.dataTables.min.css")
+}
+@section Scripts{
+    @Scripts.Render("~/Scripts/DataTables/jquery.dataTables.min.js")
+
+    <script type="text/javascript">
+        $(function() {
+            $("#data-table").dataTable();
+        });
+    </script>
+}
