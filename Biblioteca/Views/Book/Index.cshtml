@@ -1,12 +1,12 @@
 ﻿@using BusinessLayer.ViewModels
-@model ListClientViewModel
+@model ListBookViewModel
 
 @{
     ViewBag.Title = "title";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2 class="page-header">Users</h2>
+<h2 class="page-header">Books</h2>
 
 <p>
     <a href="@Url.Action("Create")" class="btn btn-info">Add New</a>
@@ -16,39 +16,33 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayName("First Name")
+                @Html.DisplayName("Title")
             </th>
             <th>
-                @Html.DisplayName("Last Name")
+                @Html.DisplayName("Author")
             </th>
             <th>
-                @Html.DisplayName("Phone Number")
-            </th>
-            <th>
-                @Html.DisplayName("CNP")
+                @Html.DisplayName("Quantity")
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (ClientViewModel user in Model.Clients)
+        @foreach (BookViewModel book in Model.Books)
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => user.FirstName)
+                    @Html.DisplayFor(modelItem => book.Title)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => user.LastName)
+                    @Html.DisplayFor(modelItem => book.Author)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => user.PhoneNumber)
+                    @Html.DisplayFor(modelItem => book.Quantity)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => user.Cnp)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = user.Id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = user.Id })
+                    @Html.ActionLink("Edit", "Edit", new { id = book.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = book.Id })
                 </td>
             </tr>
         }

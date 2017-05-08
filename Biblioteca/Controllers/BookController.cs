@@ -4,38 +4,38 @@ using BusinessLayer.ViewModels;
 
 namespace Biblioteca.Controllers
 {
-    public class ClientController : Controller
+    public class BookController : Controller
     {
-        private readonly IClientService clientService;
+        private readonly IBookService bookService;
 
-        public ClientController()
+        public BookController()
         {
-            clientService = new ClientService();
+            bookService = new BookService();
         }
 
-        // GET: Client
+        // GET: Book
         public ActionResult Index()
         {
-            ListClientViewModel viewModel = clientService.GetClients();
+            ListBookViewModel viewModel = bookService.GetBooks();
 
             return View(viewModel);
         }
 
-        // GET: Client/Create
+        // GET: Book/Create
         public ActionResult Create()
         {
-            ClientViewModel viewModel = new ClientViewModel();
+            BookViewModel viewModel = new BookViewModel();
 
             return View(viewModel);
         }
 
-        // POST: Client/Create
+        // POST: Book/Create
         [HttpPost]
-        public ActionResult Create(ClientViewModel viewModel)
+        public ActionResult Create(BookViewModel viewModel)
         {
             try
             {
-                clientService.AddClient(viewModel);
+                bookService.Add(viewModel);
 
                 return RedirectToAction("Index");
             }
@@ -45,22 +45,21 @@ namespace Biblioteca.Controllers
             }
         }
 
-        // GET: Client/Edit/5
+        // GET: Book/Edit/5
         public ActionResult Edit(int id)
         {
-
-            ClientViewModel viewModel = clientService.GetClient(id);
+            BookViewModel viewModel = bookService.GetBook(id);
 
             return View(viewModel);
         }
 
-        // POST: Client/Edit/5
+        // POST: Book/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, ClientViewModel viewModel)
+        public ActionResult Edit(int id, BookViewModel viewModel)
         {
             try
             {
-                clientService.EditClient(viewModel);
+                bookService.EditBook(viewModel);
 
                 return RedirectToAction("Index");
             }
@@ -70,21 +69,21 @@ namespace Biblioteca.Controllers
             }
         }
 
-        // GET: Client/Delete/5
+        // GET: Book/Delete/5
         public ActionResult Delete(int id)
         {
-            ClientViewModel viewModel = clientService.GetClient(id);
+            BookViewModel viewModel = bookService.GetBook(id);
 
             return View(viewModel);
         }
 
-        // POST: Client/Delete/5
+        // POST: Book/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, ClientViewModel viewModel)
+        public ActionResult Delete(int id, BookViewModel viewModel)
         {
             try
             {
-                clientService.DeleteClient(id);
+                bookService.Delete(id);
 
                 return RedirectToAction("Index");
             }

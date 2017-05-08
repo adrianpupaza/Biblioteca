@@ -49,9 +49,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EntityFramework\AvailableBook.cs">
-      <DependentUpon>BibliotecaModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="EntityFramework\BibliotecaModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

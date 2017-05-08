@@ -47,12 +47,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataServices\BookDataService.cs" />
     <Compile Include="DataServices\ClientDataService.cs" />
+    <Compile Include="DataServices\IBookDataService.cs" />
     <Compile Include="DataServices\IClientDataService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\BookService.cs" />
+    <Compile Include="Services\IBookService.cs" />
     <Compile Include="Services\ClientService.cs" />
     <Compile Include="Services\IClientService.cs" />
+    <Compile Include="ViewModels\BookViewModel.cs" />
     <Compile Include="ViewModels\ClientViewModel.cs" />
+    <Compile Include="ViewModels\ListBookViewModel.cs" />
     <Compile Include="ViewModels\ListClientViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

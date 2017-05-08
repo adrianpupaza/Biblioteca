@@ -17,16 +17,14 @@ namespace DataAccess.EntityFramework
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Book()
         {
-            this.AvailableBooks = new HashSet<AvailableBook>();
             this.BorrowedBooks = new HashSet<BorrowedBook>();
         }
     
         public int Id { get; set; }
         public string Title { get; set; }
         public string Author { get; set; }
+        public int Quantity { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AvailableBook> AvailableBooks { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BorrowedBook> BorrowedBooks { get; set; }
     }

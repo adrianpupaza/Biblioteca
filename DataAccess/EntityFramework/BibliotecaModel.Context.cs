@@ -25,7 +25,6 @@ namespace DataAccess.EntityFramework
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<AvailableBook> AvailableBooks { get; set; }
         public virtual DbSet<Book> Books { get; set; }
         public virtual DbSet<BorrowedBook> BorrowedBooks { get; set; }
         public virtual DbSet<Client> Clients { get; set; }
